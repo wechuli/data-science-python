@@ -142,3 +142,9 @@ A model is a simplified version of the observations.The simplifications are mean
 
 There is no model that is a priori guaranteed to work better.
 
+## Pipelines
+
+A sequence of data processing components is called a data pipeline.  Pipelines are very common in Machine Learning systems, since there is a lot of data to manipulate and many data transformations to apply.
+
+Components typically run asynchronously. Each component pulls in a large amount of data, processes it and spits out the result in another data store. Then, some time later, the next component in the pipeline pulls this data and spits out its own output. Each component is fairly self-contained: the interface between components is simply the data store. This makes the system simple to grasp and different teams can focus on different components. Moreover, if a component breaks down, the downstream components can often continue to run normally (at least for a while) by just using the last output from the broken component. This makes the architecture quite robust.
+
